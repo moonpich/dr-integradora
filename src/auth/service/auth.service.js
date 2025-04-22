@@ -3,6 +3,7 @@ export const RegisterService = async ({ username, email, password }) => {
   try {
     const requestRegister = await fetch(`${API_PATH}/auth/register`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -33,7 +34,6 @@ export const LoginService = async ({ emailUser, password }) => {
         email: emailUser,
         password,
       }),
-
       credentials: "include",
     });
     if (!login.ok) {
